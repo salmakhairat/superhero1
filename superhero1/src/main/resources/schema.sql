@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS superherodb;
 CREATE DATABASE superherodb;
 USE superherodb;
+
 CREATE TABLE superherovillain(
 	superherovillain_id  INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
