@@ -11,6 +11,6 @@ public interface SightingDao {
     Sighting addSighting(Sighting sighting);
     void deleteSightingById(int id);
     List<Sighting> getAllSightings();
-    Sighting updateSighting(Sighting sighting);
+    void updateSighting(Sighting sighting);
 
 }
