@@ -58,12 +58,12 @@ public class LocationDaoDB implements LocationDao {
     @Override
     public void updateLocation(Location location) {
         final String sql = "UPDATE location SET "
-        + "name = ?,"
-        + "description = ?,"
-        + "address = ?,"
-        + "latitude = ?"
-        + "longitude = ?"
-        + "WHERE locationId = ?";
+                + "name = ?,"
+                + "description = ?,"
+                + "address = ?,"
+                + "latitude = ?"
+                + "longitude = ?"
+                + "WHERE locationId = ?";
         jdbcTemplate.update(sql,
                 location.getName(),
                 location.getDescription(),
@@ -82,7 +82,7 @@ public class LocationDaoDB implements LocationDao {
         final String DELETE_LOCATION = "DELETE FROM location WHERE locationID = ?";
         jdbcTemplate.update(DELETE_LOCATION, id);
     }
-}
+
     class LocationMapper implements RowMapper<Location> {
         @Override
         public Location mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -96,4 +96,5 @@ public class LocationDaoDB implements LocationDao {
             return location;
         }
     }
+}
 
