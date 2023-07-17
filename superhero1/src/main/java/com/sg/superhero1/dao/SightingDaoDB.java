@@ -42,8 +42,8 @@ public class SightingDaoDB implements SightingDao {
             PreparedStatement statement = conn.prepareStatement(
                     sql,
                     Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, sighting.getLocation().getLocationId());
-            statement.setString(2, sighting.getSuperHeroVillain().getSuperHeroVillainId());
+            statement.setInt(1, sighting.getLocation().getLocationId());
+            statement.setInt(2, sighting.getSuperHeroVillain().getSuperHeroVillainId());
             statement.setDate(3, sighting.getDate());
             return statement;
         }, keyHolder);
