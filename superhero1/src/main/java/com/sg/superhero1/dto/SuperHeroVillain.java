@@ -8,13 +8,13 @@ public class SuperHeroVillain {
     private int superherovillainId;
     private String name;
     private String description;
-    private String superpower;
+    private SuperPower superpower;
 
 
     public SuperHeroVillain() {
     }
 
-    public SuperHeroVillain(int superherovillainId, String name, String description, String superpower) {
+    public SuperHeroVillain(int superherovillainId, String name, String description, SuperPower superpower) {
         this.superherovillainId = superherovillainId;
         this.name = name;
         this.description = description;
@@ -45,11 +45,11 @@ public class SuperHeroVillain {
         this.description = description;
     }
 
-    public String getSuperpower() {
+    public SuperPower getSuperpower() {
         return superpower;
     }
 
-    public void setSuperpower(String superpower) {
+    public void setSuperpower(SuperPower superpower) {
         this.superpower = superpower;
     }
 
