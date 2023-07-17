@@ -1,10 +1,7 @@
 package com.sg.superhero1.dao;
 
 import com.sg.superhero1.TestApplicationConfiguration;
-import com.sg.superhero1.dto.Location;
-import com.sg.superhero1.dto.Organization;
-import com.sg.superhero1.dto.Sighting;
-import com.sg.superhero1.dto.SuperHeroVillain;
+import com.sg.superhero1.dto.*;
 import org.apache.tomcat.jni.Address;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -65,9 +62,11 @@ public class OrganizationDaoDBTest {
     public void testAddGetOrganization() {
 
         SuperHeroVillain superhero = new SuperHeroVillain();
+
         superhero.setName("Test name");
         superhero.setDescription("Test descr");
-        superhero.setSuperpower("Test power");
+        SuperPower superpower = new SuperPower();
+        superpower.setSuperpowerName("Test power");
         superhero = superDao.create(superhero);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
@@ -94,7 +93,8 @@ public class OrganizationDaoDBTest {
         SuperHeroVillain superhero = new SuperHeroVillain();
         superhero.setName("Test name");
         superhero.setDescription("Test descr");
-        superhero.setSuperpower("Test power");
+        SuperPower superpower = new SuperPower();
+        superpower.setSuperpowerName("Test power");
         superhero = superDao.create(superhero);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
@@ -128,7 +128,8 @@ public class OrganizationDaoDBTest {
         SuperHeroVillain superhero = new SuperHeroVillain();
         superhero.setName("Test name");
         superhero.setDescription("Test descr");
-        superhero.setSuperpower("Test power");
+        SuperPower superpower = new SuperPower();
+        superpower.setSuperpowerName("Test power1");
         superhero = superDao.create(superhero);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
@@ -151,7 +152,8 @@ public class OrganizationDaoDBTest {
         SuperHeroVillain superhero2 = new SuperHeroVillain();
         superhero2.setName("Test name2");
         superhero2.setDescription("Test descr2");
-        superhero2.setSuperpower("Test power2");
+        SuperPower superpower2 = new SuperPower();
+        superpower2.setSuperpowerName("Test power2");
         superhero2 = superDao.create(superhero2);
 
         superheros.add(superhero2);
@@ -171,7 +173,8 @@ public class OrganizationDaoDBTest {
         SuperHeroVillain superhero = new SuperHeroVillain();
         superhero.setName("Test name");
         superhero.setDescription("Test descr");
-        superhero.setSuperpower("Test power");
+        SuperPower superpower = new SuperPower();
+        superpower.setSuperpowerName("Test power");
         superhero = superDao.create(superhero);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
@@ -197,13 +200,15 @@ public class OrganizationDaoDBTest {
         SuperHeroVillain superhero1 = new SuperHeroVillain();
         superhero1.setName("Test name1");
         superhero1.setDescription("Test descr1");
-        superhero1.setSuperpower("Test power1");
+        SuperPower superpower = new SuperPower();
+        superpower.setSuperpowerName("Test power2");
         superhero1 = superDao.create(superhero1);
 
         SuperHeroVillain superhero2 = new SuperHeroVillain();
         superhero2.setName("Test name2");
         superhero2.setDescription("Test descr2");
-        superhero2.setSuperpower("Test power2");
+        SuperPower superpower1 = new SuperPower();
+        superpower1.setSuperpowerName("Test power1");
         superhero2 = superDao.create(superhero2);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
