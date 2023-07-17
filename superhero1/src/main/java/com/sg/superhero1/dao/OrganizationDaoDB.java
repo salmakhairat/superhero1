@@ -111,7 +111,7 @@ public class OrganizationDaoDB implements OrganizationDao {
         final String INSERT_MEMBER = "INSERT INTO superhero_organization (superhero_id, organization_id) "
                 + "VALUES(?,?)";
         for (SuperHeroVillain member : organization.getMembers()){
-            jdbcTemplate.update(INSERT_MEMBER, organization.getId(), member.getId());    
+            jdbcTemplate.update(INSERT_MEMBER, organization.getId(), member.getSuperHeroVillainId());
 //            comes from superHeroVillain class
         }
     }

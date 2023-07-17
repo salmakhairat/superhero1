@@ -71,7 +71,7 @@ public class SuperHeroVillainDaoDB implements SuperHeroVillainDao {
         jdbcTemplate.update(sql, superherovillainId);
     }
 
-    private static class SuperHeroVillainMapper implements RowMapper<SuperHeroVillain> {
+    public static class SuperHeroVillainMapper implements RowMapper<SuperHeroVillain> {
         @Override
         public SuperHeroVillain mapRow(ResultSet rs, int rowNum) throws SQLException {
             int superHeroVillainId = rs.getInt("superherovillain_id");
