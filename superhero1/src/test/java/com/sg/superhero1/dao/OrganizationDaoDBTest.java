@@ -46,7 +46,7 @@ public class OrganizationDaoDBTest {
 
         List<Sighting> sightings = sightDao.getAllSightings();
         for (Sighting sighting: sightings){
-            sightDao.deleteSightingById(sighting.getId());
+            sightDao.deleteSightingById(sighting.getSighting_id());
         }
 
         List<SuperHeroVillain> superpeople = superDao.getAllSuperpeople();
