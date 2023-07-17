@@ -13,6 +13,7 @@ import java.util.List;
 
 @Repository
 public class SuperHeroVillainDaoDB implements SuperHeroVillainDao {
+    @Autowired
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired

@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b51696e-7194-4751-b3ae-b51a705cf3d8" name="Changes" comment="" />
+    <list default="true" id="8b51696e-7194-4751-b3ae-b51a705cf3d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/LocationDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/LocationDaoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/OrganizationDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/OrganizationDaoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDaoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SuperHeroVillainDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SuperHeroVillainDaoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sg/superhero1/dao/LocationDaoDBTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sg/superhero1/dao/LocationDaoDBTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sg/superhero1/dao/OrganizationDaoDBTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sg/superhero1/dao/OrganizationDaoDBTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +62,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.OrganizationDaoDBTest">
     <configuration name="SuperHeroApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sg.superhero1.SuperHeroApp" />
       <module name="superhero1" />
@@ -65,8 +76,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OrganizationDaoDBTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="superhero1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sg.superhero1.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sg.superhero1.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.sg.superhero1.dao.OrganizationDaoDBTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OrganizationDaoDBTest" />
         <item itemvalue="Application.SuperHeroApp" />
       </list>
     </recent_temporary>
