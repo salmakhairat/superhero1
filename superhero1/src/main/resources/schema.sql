@@ -11,7 +11,8 @@ CREATE TABLE superherovillain(
 	superherovillain_id  INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     description TINYTEXT,
-    superpower VARCHAR(50) NOT NULL
+    superpower INT NOT NULL,
+    FOREIGN KEY (superpower) REFERENCES superpower(superpower_id)
 );
 
 CREATE TABLE organization(
