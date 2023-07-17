@@ -2,6 +2,7 @@ package com.sg.superhero1.dto;
 
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class Sighting {
    private int sighting_id;
@@ -20,6 +21,9 @@ public class Sighting {
         this.location = location;
         this.superHeroVillain = superHeroVillain;
         this.date = date;
+    }
+
+    public Sighting() {
     }
 
     public Location getLocation() {
@@ -52,5 +56,18 @@ public class Sighting {
 
     public void setSighting_id(int sighting_id) {
         this.sighting_id = sighting_id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sighting sighting = (Sighting) o;
+        return sighting_id == sighting.sighting_id && Objects.equals(location, sighting.location) && Objects.equals(superHeroVillain, sighting.superHeroVillain) && Objects.equals(date, sighting.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sighting_id, location, superHeroVillain, date);
     }
 }

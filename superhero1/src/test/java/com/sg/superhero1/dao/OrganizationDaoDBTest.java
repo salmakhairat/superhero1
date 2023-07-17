@@ -49,14 +49,14 @@ public class OrganizationDaoDBTest {
             sightDao.deleteSightingById(sighting.getSighting_id());
         }
 
-        List<SuperHeroVillain> superpeople = superDao.getAllSuperpeople();
+        List<SuperHeroVillain> superpeople = superDao.getAllSuperHeroVillains();
         for (SuperHeroVillain superperson : superpeople){
-            superDao.deleteSuperpersonById(superperson.getId());
+            superDao.delete(superperson.getSuperHeroVillainId());
         }
 
         List<Location> locations = locDao.getAllLocations();
         for (Location location : locations){
-            locDao.deleteLocationById(location.getId());
+            locDao.deleteLocationById(location.getLocationId());
         }
     }
 
@@ -68,7 +68,7 @@ public class OrganizationDaoDBTest {
         superhero.setName("Test name");
         superhero.setDescription("Test descr");
         superhero.setSuperpower("Test power");
-        superhero = superDao.addSuperhero(superhero);
+        superhero = superDao.create(superhero);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
         superheros.add(superhero);
@@ -95,7 +95,7 @@ public class OrganizationDaoDBTest {
         superhero.setName("Test name");
         superhero.setDescription("Test descr");
         superhero.setSuperpower("Test power");
-        superhero = superDao.addSuperhero(superhero);
+        superhero = superDao.create(superhero);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
         superheros.add(superhero);
@@ -129,7 +129,7 @@ public class OrganizationDaoDBTest {
         superhero.setName("Test name");
         superhero.setDescription("Test descr");
         superhero.setSuperpower("Test power");
-        superhero = superDao.addSuperhero(superhero);
+        superhero = superDao.create(superhero);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
         superheros.add(superhero);
@@ -152,7 +152,7 @@ public class OrganizationDaoDBTest {
         superhero2.setName("Test name2");
         superhero2.setDescription("Test descr2");
         superhero2.setSuperpower("Test power2");
-        superhero2 = superDao.addSuperhero(superhero2);
+        superhero2 = superDao.create(superhero2);
 
         superheros.add(superhero2);
 
@@ -172,7 +172,7 @@ public class OrganizationDaoDBTest {
         superhero.setName("Test name");
         superhero.setDescription("Test descr");
         superhero.setSuperpower("Test power");
-        superhero = superDao.addSuperhero(superhero);
+        superhero = superDao.create(superhero);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
         superheros.add(superhero);
@@ -198,13 +198,13 @@ public class OrganizationDaoDBTest {
         superhero1.setName("Test name1");
         superhero1.setDescription("Test descr1");
         superhero1.setSuperpower("Test power1");
-        superhero1 = superDao.addSuperhero(superhero1);
+        superhero1 = superDao.create(superhero1);
 
         SuperHeroVillain superhero2 = new SuperHeroVillain();
         superhero2.setName("Test name2");
         superhero2.setDescription("Test descr2");
         superhero2.setSuperpower("Test power2");
-        superhero2 = superDao.addSuperhero(superhero2);
+        superhero2 = superDao.create(superhero2);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
         superheros.add(superhero1);
@@ -237,7 +237,7 @@ public class OrganizationDaoDBTest {
         org3.setMembers(superheros);
         org3 = orgDao.addOrganization(org3);
 
-        List<Organization> organizationsForSuperhero = orgDao.getAllOrganizationsForSuperhero(superhero1.getId());
+        List<Organization> organizationsForSuperhero = orgDao.getAllOrganizationsForSuperhero(superhero1.getSuperHeroVillainId());
         assertEquals(2, organizationsForSuperhero.size());
         assertTrue(organizationsForSuperhero.contains(org));
         assertTrue(organizationsForSuperhero.contains(org3));
@@ -246,3 +246,4 @@ public class OrganizationDaoDBTest {
 
 
 }
+
