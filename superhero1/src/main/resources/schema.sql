@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS superherodb;
 CREATE DATABASE superherodb;
 USE superherodb;
 
