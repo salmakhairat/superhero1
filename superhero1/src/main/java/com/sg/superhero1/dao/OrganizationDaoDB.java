@@ -36,7 +36,7 @@ public class OrganizationDaoDB implements OrganizationDao {
         }
     }
 
-    // create a helper method to get SuperHeroVillains for an organization:
+//     create a helper method to get SuperHeroVillains for an organization:
     private List<SuperHeroVillain> getMembersForOrganization(int id){
         final String SELECT_MEMBERS_FOR_ORGANIZATION = "SELECT s.* FROM superherovillain s "
                 + "INNER JOIN superhero_organization so ON so.superhero_id = s.superherovillain_id"
@@ -53,7 +53,7 @@ public class OrganizationDaoDB implements OrganizationDao {
         return organizations;
     }
 
-    //a private helper method
+//    a private helper method
     private void addSuperHerosToOrganization(List<Organization> organizations) {
         for (Organization organization: organizations){
             organization.setMembers(getMembersForOrganization(organization.getId()));
@@ -72,7 +72,7 @@ public class OrganizationDaoDB implements OrganizationDao {
                 organization.getContact(),
                 organization.getId());
 
-        // deleting all the existing bridge table entries for the relationship.
+//         deleting all the existing bridge table entries for the relationship.
         final String DELETE_ORGANIZATION_SUPERHERO = "DELETE FROM superhero_organization "
                 + "WHERE organization_id = ?";
         jdbcTemplate.update(DELETE_ORGANIZATION_SUPERHERO, organization.getId());
@@ -107,11 +107,12 @@ public class OrganizationDaoDB implements OrganizationDao {
     }
     private void insertOrganizationSuperHero(Organization organization) {
 
-        // We can create our query String before the loop because it never actually changes; only the data we put into it changes.
+//         We can create our query String before the loop because it never actually changes; only the data we put into it changes.
         final String INSERT_MEMBER = "INSERT INTO superhero_organization (superhero_id, organization_id) "
                 + "VALUES(?,?)";
         for (SuperHeroVillain member : organization.getMembers()){
-            jdbcTemplate.update(INSERT_MEMBER, organization.getId(), member.getId());   // comes from superHeroVillain class
+            jdbcTemplate.update(INSERT_MEMBER, organization.getId(), member.getId());    
+//            comes from superHeroVillain class
         }
     }
 
