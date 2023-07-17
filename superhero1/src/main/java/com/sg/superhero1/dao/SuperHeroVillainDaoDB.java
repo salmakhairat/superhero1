@@ -20,6 +20,7 @@ public class SuperHeroVillainDaoDB implements SuperHeroVillainDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+
     @Override
     public SuperHeroVillain getSuperHeroVillainById(int superherovillainId) {
         final String sql = "SELECT * FROM superherovillain WHERE superherovillain_id = ?";
@@ -82,4 +83,6 @@ public class SuperHeroVillainDaoDB implements SuperHeroVillainDao {
         }
     }
 }
+
+
 

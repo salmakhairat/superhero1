@@ -2,11 +2,17 @@ DROP DATABASE IF EXISTS superherodb;
 CREATE DATABASE superherodb;
 USE superherodb;
 
+CREATE TABLE superpower (
+	superpower_id INT AUTO_INCREMENT PRIMARY KEY,
+    superpower_name VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE superherovillain(
 	superherovillain_id  INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     description TINYTEXT,
-    superpower VARCHAR(50) NOT NULL
+    superpower INT NOT NULL,
+    FOREIGN KEY (superpower) REFERENCES superpower(superpower_id)
 );
 
 CREATE TABLE organization(

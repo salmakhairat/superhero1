@@ -4,6 +4,7 @@ package com.sg.superhero1.dto;
 import java.util.Objects;
 
 public class SuperHeroVillain {
+
     private int superherovillainId;
     private String name;
     private String description;
@@ -65,4 +66,7 @@ public class SuperHeroVillain {
         return Objects.hash(superherovillainId, name, description, superpower);
     }
 }
+
+
+
 
