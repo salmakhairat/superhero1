@@ -16,6 +16,7 @@ import java.util.List;
 
 @Repository
 public class OrganizationDaoDB implements OrganizationDao {
+    @Autowired
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired

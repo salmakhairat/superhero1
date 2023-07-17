@@ -14,6 +14,7 @@ import java.util.List;
 
 @Repository
 public class SightingDaoDB implements SightingDao {
+    @Autowired
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired

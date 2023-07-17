@@ -27,7 +27,8 @@ public class OrganizationDaoDBTest {
     @Autowired
     SightingDao sightDao;
 
-
+@Autowired
+SuperPowerDao superpowerDao;
 
     @BeforeEach
     public void setUp() {
@@ -170,6 +171,7 @@ public class OrganizationDaoDBTest {
         superhero.setDescription("Test descr");
         SuperPower superpower = new SuperPower();
         superpower.setSuperpowerName("Test power");
+        superhero.setSuperpower(superpower);
         superhero = superDao.create(superhero);
 
         List<SuperHeroVillain> superheros = new ArrayList<>();
