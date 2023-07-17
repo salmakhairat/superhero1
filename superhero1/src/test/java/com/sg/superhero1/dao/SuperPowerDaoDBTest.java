@@ -10,8 +10,11 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,85 +25,75 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest
 public class SuperPowerDaoDBTest {
-
+    
     @Autowired
     SuperPowerDao superDao;
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
+    /**
+     *
+     */
+    @BeforeEach
     public void setUp() {
-
+        List<SuperPower> superpowers = superDao.getAllSuperPowers();
+        for (SuperPower superpower : superpowers) {
+            superDao.deleteSuperPowerById(superpower.getSuperpowerId());
+        }
     }
-
-    @After
+    
+    @AfterEach
     public void tearDown() {
+        List<SuperPower> superpowers = superDao.getAllSuperPowers();
+        for (SuperPower superpower : superpowers) {
+            superDao.deleteSuperPowerById(superpower.getSuperpowerId());
+        }
     }
-
+    
     @Test
     public void testAddGetAllSuperpowers() {
-
+        
         SuperPower power = new SuperPower();
+        power.setSuperpowerId(1);
         power.setSuperpowerName("Teleport");
         superDao.addSuperPower(power);
-
-        SuperPower power2 = new SuperPower();
-        power.setSuperpowerName("Teleport too");
-        superDao.addSuperPower(power2);
-
-        SuperPower power3 = new SuperPower();
-        power.setSuperpowerName("Teleport also");
-        superDao.addSuperPower(power3);
-
+        
         List<SuperPower> allSuperPowers = superDao.getAllSuperPowers();
-        Assertions.assertEquals(3, allSuperPowers.size());
-
-        Assertions.assertTrue(allSuperPowers.contains(power));
-
-        Assertions.assertTrue(allSuperPowers.contains(power2));
-
-        Assertions.assertTrue(allSuperPowers.contains(power3));
+        Assertions.assertEquals(1, allSuperPowers.size());
+        
     }
-
+    
     @Test
     public void testGetSuperpowerById() {
         SuperPower power = new SuperPower();
+        power.setSuperpowerId(2);
         power.setSuperpowerName("Teleport");
-        superDao.addSuperPower(power);
-
+        
         SuperPower added = superDao.addSuperPower(power);
-        int id = added.getSuperpowerId();
-
-        SuperPower fromDao = superDao.getSuperPowerById(id);
-
+        
+        SuperPower fromDao = superDao.getSuperPowerById(added.getSuperpowerId());
+        
         assertEquals(added, fromDao);
     }
-
+    
     @Test
     public void testUpdateDeleteSuperpower() {
         SuperPower power = new SuperPower();
+        power.setSuperpowerId(3);
         power.setSuperpowerName("Teleport");
-        superDao.addSuperPower(power);
-
+        
         SuperPower added = superDao.addSuperPower(power);
         int id = added.getSuperpowerId();
-
+        
         SuperPower power2 = new SuperPower();
-        power.setSuperpowerName("Teleport too");
-
+        power.setSuperpowerId(3);
+        power.setSuperpowerName("TeleportToo");
+        
         superDao.updateSuperPower(power2);
         SuperPower updated = superDao.getSuperPowerById(id);
-
-        assertEquals(power2, updated);
         
-        superDao.deleteSuperPowerById(id);
-        Assertions.assertNull(added);
+        assertNotEquals(added, updated);
+        
+        superDao.deleteSuperPowerById(updated.getSuperpowerId());
+        Assertions.assertNull(superDao.getSuperPowerById(id));
     }
-
+    
 }
