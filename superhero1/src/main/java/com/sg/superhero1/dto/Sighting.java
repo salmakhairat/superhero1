@@ -22,6 +22,9 @@ public class Sighting {
         this.date = date;
     }
 
+    public Sighting() {
+    }
+
     public Location getLocation() {
         return location;
     }
