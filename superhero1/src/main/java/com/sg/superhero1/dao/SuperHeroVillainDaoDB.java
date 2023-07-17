@@ -1,6 +1,7 @@
 package com.sg.superhero1.dao;
 
 import com.sg.superhero1.dto.SuperHeroVillain;
+import com.sg.superhero1.dto.SuperPower;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -49,7 +50,7 @@ public class SuperHeroVillainDaoDB implements SuperHeroVillainDao {
 
                 prepStatement.setString( 1, superherovillain.getName() );
                 prepStatement.setString( 2, superherovillain.getDescription() );
-                prepStatement.setString( 3, superherovillain.getSuperpower() );
+                prepStatement.setInt( 3, superherovillain.getSuperpower().getSuperpowerId() );
                 return prepStatement;
             }, keyHolder );
 
@@ -74,10 +75,12 @@ public class SuperHeroVillainDaoDB implements SuperHeroVillainDao {
     public static class SuperHeroVillainMapper implements RowMapper<SuperHeroVillain> {
         @Override
         public SuperHeroVillain mapRow(ResultSet rs, int rowNum) throws SQLException {
+            SuperPowerDao power = new SuperPowerDaoDB();
             int superHeroVillainId = rs.getInt("superherovillain_id");
+            int superpowerId = rs.getInt("superpower");
             String name = rs.getString("name");
             String description = rs.getString("description");
-            String superpower = rs.getString("superpower");
+            SuperPower superpower = power.getSuperPowerById(superpowerId);
 
             return new SuperHeroVillain(superHeroVillainId, name, description, superpower);
         }

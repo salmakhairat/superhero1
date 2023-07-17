@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b51696e-7194-4751-b3ae-b51a705cf3d8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDaoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dto/Sighting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dto/Sighting.java" afterDir="false" />
-    </list>
+    <list default="true" id="8b51696e-7194-4751-b3ae-b51a705cf3d8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +43,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/liennguyen/Desktop/superhero1/superhero1&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
