@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b51696e-7194-4751-b3ae-b51a705cf3d8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dao/SightingDaoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dto/Sighting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sg/superhero1/dto/Sighting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
