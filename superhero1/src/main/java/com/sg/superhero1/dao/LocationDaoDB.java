@@ -14,6 +14,7 @@ import java.util.List;
 
 @Repository
 public class LocationDaoDB implements LocationDao {
+    @Autowired
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired

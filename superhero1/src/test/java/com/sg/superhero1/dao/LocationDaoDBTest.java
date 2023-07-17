@@ -5,9 +5,10 @@ import com.sg.superhero1.dto.Location;
 import com.sg.superhero1.dto.Organization;
 import com.sg.superhero1.dto.Sighting;
 import com.sg.superhero1.dto.SuperHeroVillain;
-import org.junit.Test;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
