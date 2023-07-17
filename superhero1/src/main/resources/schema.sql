@@ -1,4 +1,4 @@
-CREATE DATABASE superherodb;
+CREATE SCHEMA superherodb;
 USE superherodb;
 
 CREATE TABLE superpower (
