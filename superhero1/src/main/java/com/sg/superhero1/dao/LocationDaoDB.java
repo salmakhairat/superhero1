@@ -35,29 +35,6 @@ public class LocationDaoDB implements LocationDao {
         int newId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         location.setLocationId(newId);
         return location;
-//        GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
-//
-//        //use JdbcTemplate to execute SQL statement
-//        jdbcTemplate.update((Connection conn) -> {
-//
-//            PreparedStatement statement = conn.prepareStatement(
-//                    sql,
-//                    Statement.RETURN_GENERATED_KEYS);
-//
-//            //sets values for prepared statement
-//            statement.setString(1, location.getName());
-//            statement.setString(2, location.getDescription());
-//            statement.setString(3, location.getAddress());
-//            statement.setString(4, location.getLatitude());
-//            statement.setString(5, location.getLongitude());
-//            return statement;
-//
-//        }, keyHolder);
-//
-//        //retrieves generated game ID and sets it in Location object
-//        location.setLocationId(keyHolder.getKey().intValue());
-//
-//        return location;
     }
 
 
@@ -68,7 +45,7 @@ public class LocationDaoDB implements LocationDao {
     }
 
     @Override
-    public Location findLocationById(int id) {
+    public Location getLocationById(int id) {
         try {
             final String sql = "SELECT * FROM location WHERE locationId = ?;";
             Location location = jdbcTemplate.queryForObject(sql, new LocationMapper(), id);
@@ -87,13 +64,18 @@ public class LocationDaoDB implements LocationDao {
         + "latitude = ?"
         + "longitude = ?"
         + "WHERE locationId = ?";
-        jdbcTemplate.update(sql, location.getName(), location.getDescription(), location.getAddress(), location.getLatitude(), location.getLongitude());
+        jdbcTemplate.update(sql,
+                location.getName(),
+                location.getDescription(),
+                location.getAddress(),
+                location.getLatitude(),
+                location.getLongitude(),
+                location.getLocationId());
     }
 
     @Override
     @Transactional
     public void deleteLocationById(int id) {
-        //TODO will this delete the entire location Id, including other sightings that contain the same location?
         final String DELETE_SIGHTING = "DELETE FROM sightings WHERE locationId = ?";
         jdbcTemplate.update(DELETE_SIGHTING, id);
 

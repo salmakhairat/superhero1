@@ -7,7 +7,7 @@ import java.util.List;
 public interface LocationDao {
     Location createNewLocation(Location location);
     List<Location> getAllLocations();
-    Location findLocationById(int id);
+    Location getLocationById(int id);
     void updateLocation(Location location);
     void deleteLocationById(int id);
 }
