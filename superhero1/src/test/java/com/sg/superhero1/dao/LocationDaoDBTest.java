@@ -34,21 +34,7 @@ public class LocationDaoDBTest {
     SightingDao sightDao;
     @BeforeEach
     public void setUp() {
-        List<Organization> organizations = orgDao.getAllOrganizations();
-        for (Organization organization : organizations) {
-            orgDao.deleteOrganizationById(organization.getId());
-        }
-
-        List<Sighting> sightings = sightDao.getAllSightings();
-        for (Sighting sighting : sightings) {
-            sightDao.deleteSightingById(sighting.getSighting_id());
-        }
-
-        List<SuperHeroVillain> superpeople = superDao.getAllSuperpeople();
-        for (SuperHeroVillain superperson : superpeople) {
-            superDao.deleteSuperpersonById(superperson.getId());
-        }
-
+     //deletes all entries of each table in the test database so the test can test properly
         List<Location> locations = locDao.getAllLocations();
         for (Location location : locations) {
             locDao.deleteLocationById(location.getLocationId());
@@ -67,8 +53,10 @@ public class LocationDaoDBTest {
         location.setLongitude("30W");
         location = locDao.createNewLocation(location);
 
+        //get the location
         Location fromDao = locDao.getLocationById(location.getLocationId());
 
+        //assert that the location created is equal to the one received
         assertEquals(location, fromDao);
     }
 
@@ -110,18 +98,25 @@ public class LocationDaoDBTest {
         location.setLongitude("TestLongitude");
         location = locDao.createNewLocation(location);
 
+        //get the location
         Location fromDao = locDao.getLocationById(location.getLocationId());
 
+        //assert the location is equal to the one created
         assertEquals(location, fromDao);
 
+        //set a new location name
         location.setName("Another Test Location");
 
+        //update the location
         locDao.updateLocation(location);
 
+        //assert the new location is not equal to the fromDao location anymore
         assertNotEquals(location, fromDao);
 
+        //change the fromDao location to the new location
         fromDao = locDao.getLocationById(location.getLocationId());
 
+        //assert the two locations are equal again
         assertEquals(location, fromDao);
     }
 
@@ -136,11 +131,16 @@ public class LocationDaoDBTest {
         location.setLongitude("TestLongitude");
         location = locDao.createNewLocation(location);
 
+        //get the location
         Location fromDao = locDao.getLocationById(location.getLocationId());
+
+        //assert that the location we got is the same as the one created
         assertEquals(location, fromDao);
 
+        //delete the location
         locDao.deleteLocationById(location.getLocationId());
 
+        //get the new ID and assert that the location is now null
         fromDao = locDao.getLocationById(location.getLocationId());
         assertNull(fromDao);
 
