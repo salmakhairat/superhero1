@@ -13,17 +13,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class SuperPowerDaoDB implements SuperPowerDao {
-    
+
     @Autowired
     JdbcTemplate jdbc;
-   
+
     @Override
     public SuperPower addSuperPower(SuperPower superpower) {
-        final String INSERT_SUPERPOWER = "INSERT INTO superpower(superpower_name) VALUES(?)";
-        
+        final String INSERT_SUPERPOWER = "INSERT INTO superpower (superpower_name) VALUES (?)";
+
         jdbc.update(INSERT_SUPERPOWER,
                 superpower.getSuperpowerName());
-
         int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         superpower.setSuperpowerId(newId);
         return superpower;
@@ -32,12 +31,11 @@ public class SuperPowerDaoDB implements SuperPowerDao {
     @Override
     public SuperPower getSuperPowerById(int id) {
 
-        try{
-           
+        try {
+
             final String GET_SUPERPOWER_BY_ID = "SELECT * FROM superpower WHERE superpower_id = ?";
-            return jdbc.queryForObject(GET_SUPERPOWER_BY_ID , new SuperPowerMapper(), id);
-        }
-        catch (DataAccessException ex){
+            return jdbc.queryForObject(GET_SUPERPOWER_BY_ID, new SuperPowerMapper(), id);
+        } catch (DataAccessException ex) {
             return null;
         }
     }
@@ -60,22 +58,21 @@ public class SuperPowerDaoDB implements SuperPowerDao {
     @Transactional
     //delete superpower based on id
     public void deleteSuperPowerById(int id) {
-        final String DELETE_SUPERPOWER = "DELETE FROM superpower WHERE superpower_id = ?;";
+        final String DELETE_SUPERPOWER = "DELETE FROM superpower WHERE superpower_id = ?";
         jdbc.update(DELETE_SUPERPOWER, id);
     }
 
-    
-    public class SuperPowerMapper implements RowMapper<SuperPower>{
+    public class SuperPowerMapper implements RowMapper<SuperPower> {
 
-    @Override
-    public SuperPower mapRow(ResultSet rs, int rowNum) throws SQLException {
-        SuperPower superpower = new SuperPower();
-        superpower.setSuperpowerId(rs.getInt("superpower_id"));
-        superpower.setSuperpowerName(rs.getString("superpower_name"));
-        
-        return superpower;
+        @Override
+        public SuperPower mapRow(ResultSet rs, int rowNum) throws SQLException {
+            SuperPower superpower = new SuperPower();
+            superpower.setSuperpowerId(rs.getInt("superpower_id"));
+            superpower.setSuperpowerName(rs.getString("superpower_name"));
+
+            return superpower;
+        }
+
     }
-    
-}
 
 }

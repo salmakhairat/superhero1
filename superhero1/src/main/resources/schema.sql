@@ -1,3 +1,4 @@
+DROP SCHEMA IF EXISTS superherodb;
 CREATE SCHEMA superherodb;
 USE superherodb;
 
